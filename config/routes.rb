@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
+root 'football#home'
+
+  get 'football/matches'
+
+  get 'football/players'
+
   resources :matches
   resources :players
 
-  root 'players#index'
+ # root 'players#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
