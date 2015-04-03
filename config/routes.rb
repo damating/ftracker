@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-root 'football#home'
-
-  get 'football/matches'
-
-  get 'football/players'
+  root 'football#home'
+  get 'matches' =>  'football#matches'
+  get 'players' =>  'football#players'
+  get 'about'   =>  'football#about'
 
   resources :matches
   resources :players

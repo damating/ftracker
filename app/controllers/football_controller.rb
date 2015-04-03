@@ -7,4 +7,7 @@ class FootballController < ApplicationController
 
   def players
   end
+
+  def about
+  end
 end
