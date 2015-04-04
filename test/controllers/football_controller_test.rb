@@ -11,9 +11,9 @@ class FootballControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get players" do
-    get :players
-    assert_response :success
-  end
+ #test "should get players" do
+    #get :players
+    #assert_response :success
+  #end
 
 end

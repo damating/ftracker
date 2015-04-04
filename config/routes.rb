@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'football#home'
   get 'matches' =>  'football#matches'
-  get 'players' =>  'football#players'
+  get 'players' =>  'players#index'
   get 'about'   =>  'football#about'
   get 'signup'  =>  'players#new'
 
