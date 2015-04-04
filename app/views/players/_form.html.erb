@@ -1,38 +1,28 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 <%= form_for(@player) do |f| %>
-  <% if @player.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</h2>
+ <%= render 'players/error_messages' %>
 
-      <ul>
-      <% @player.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :avatar %><br>
-    <%= f.text_area :avatar %>
-  </div>
-    <div class="field">
-    <%= f.label :email %><br>
-    <%= f.email_field :email %>
-  </div>
-   <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
+    <%= f.text_field :first_name, class: 'form-control' %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name, class: 'form-control' %>
+
+    <%= f.label :avatar %><br>
+    <%= f.text_area :avatar, class: 'form-control' %>
+
+    <%= f.label :email %><br>
+    <%= f.email_field :email, class: 'form-control' %>
+
+    <%= f.label :password %><br>
+    <%= f.password_field :password, class: 'form-control' %>
+
+    <%= f.label :password_confirmation, "Confirmation" %><br>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+     <%= f.submit "Create", class: "btn btn-primary" %>
+
 <% end %>
+</div>
+</div>

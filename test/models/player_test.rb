@@ -6,7 +6,7 @@ class PlayerTest < ActiveSupport::TestCase
   # end
  
  def setup
-   @player = Player.new(first_name: "Example Player", last_name: "Example Player", email: "player@example.com")
+   @player = Player.new(first_name: "Example Player", last_name: "Example Player", email: "player@example.com", password: "foobar", password_confirmation: "foobar")
  end
 
  test "should be valid" do
@@ -49,5 +49,11 @@ class PlayerTest < ActiveSupport::TestCase
    @player.save
    assert_not duplicate_player.valid?
  end
+
+   test "password should have a minimum length" do
+    @player.password = @player.password_confirmation = "a" * 5
+    assert_not @player.valid?
+  end
+
 
 end

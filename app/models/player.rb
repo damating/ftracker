@@ -1,4 +1,5 @@
 class Player < ActiveRecord::Base
+  before_save { self.email = email.downcase }
   validates :first_name, presence: true, length: { maximum: 50 } 
   validates :last_name,  presence: true, length: { maximum: 50 }
 
@@ -9,4 +10,8 @@ class Player < ActiveRecord::Base
 
   has_many :matches
   has_many :goals
+
+  has_secure_password
+  validates :password, length: { minimum: 6 }
+
 end

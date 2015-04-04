@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'matches' =>  'football#matches'
   get 'players' =>  'players#index'
   get 'about'   =>  'football#about'
-  get 'signup'  =>  'players#new'
+  get 'signup'  =>  'players#signup'
+  get 'new'  =>  'players#new'
 
   resources :matches
   resources :players
