@@ -12,6 +12,13 @@ class Player < ActiveRecord::Base
   has_many :goals
 
   has_secure_password
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, allow_blank: true
+
+  # Returns the hash digest of the given string.
+  def Player.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 
 end

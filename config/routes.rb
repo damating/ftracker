@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
-  root 'football#home'
-  get 'matches' =>  'football#matches'
-  get 'players' =>  'players#index'
-  get 'about'   =>  'football#about'
-  get 'signup'  =>  'players#signup'
-  get 'new'  =>  'players#new'
+  get 'sessions/new'
+
+  root                 'football#home'
+  get    'matches' =>  'football#matches'
+  get    'players' =>  'players#index'
+  get    'about'   =>  'football#about'
+  get    'signup'  =>  'players#signup'
+  get    'new'     =>  'players#new'
+  get    'login'   =>  'sessions#new'
+  post   'login'   =>  'sessions#create'
+  delete 'logout'  =>  'sessions#destroy'
 
   resources :matches
   resources :players

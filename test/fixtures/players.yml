@@ -5,13 +5,4 @@ one:
   last_name: MyString
   avatar: MyText
   email: MyEmail@email.com
-  password: MyPassword
-  password_confirmation: MyPassword
-
-two:
-  first_name: MyString
-  last_name: MyString
-  avatar: MyText
-  email: MyEmail@email.com
-  password: MyPassword
-  password_confirmation: MyPassword
+  password_digest: <%= Player.digest('password') %>

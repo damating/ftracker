@@ -18,7 +18,7 @@ class PlayersControllerTest < ActionController::TestCase
 
   #test "should create player" do
     #assert_difference('Player.count') do
-      #post :create, player: { avatar: @player.avatar, email: @player.email, first_name: @player.first_name, last_name: @player.last_name, password: @player.password }
+      #post :create, player: { avatar: @player.avatar, email: @player.email, first_name: @player.first_name, last_name: @player.last_name, password: @player.password, password_confirmation: @player.password_confirmation }
     #end
 
     #assert_redirected_to player_path(assigns(:player))
@@ -35,7 +35,7 @@ class PlayersControllerTest < ActionController::TestCase
   end
 
  #test "should update player" do
-    #patch :update, id: @player, player: { avatar: @player.avatar, email: @player.email,  first_name: @player.first_name, last_name: @player.last_name,password: @player.password }
+    #patch :update, id: @player, player: { avatar: @player.avatar, email: @player.email,  first_name: @player.first_name, last_name: @player.last_name,password: @player.password, password_confirmation: @player.password_confirmation }
     #assert_redirected_to player_path(assigns(:player))
   #end
 
