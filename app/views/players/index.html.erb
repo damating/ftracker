@@ -2,9 +2,19 @@
 
 <h1>Listing Players</h1>
 
+<ul class="players">
+  <% @players.each do |player| %>
+    <li>
+      <%= gravatar_for player, size: 50 %>
+      <%= link_to player.first_name, player %>
+    </li>
+  <% end %>
+</ul>
+
 <table>
   <thead>
     <tr>
+      <th>Avatar</th>
       <th>First name</th>
       <th>Last name</th>
       <th>Avatar</th>
@@ -15,12 +25,14 @@
 
   <tbody>
     <% @players.each do |player| %>
-      <tr>
+      <tr class="players">
+        <td><%= gravatar_for player, size: 50 %></td>
         <td><%= player.first_name %></td>
         <td><%= player.last_name %></td>
         <td><%= player.avatar %></td>
         <td><%= player.email %></td>
-        <td><%= link_to 'Show', player %></td>
+        
+	<td><%= link_to 'Show', player %></td>
         <td><%= link_to 'Edit', edit_player_path(player) %></td>
         <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
