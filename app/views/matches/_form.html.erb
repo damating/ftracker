@@ -23,14 +23,18 @@
     <%= f.label :startTime %><br>
     <%= f.time_select :startTime %>
   </div>
-  <div class="field">
+
+   <div class="field">
     <%= f.label :player1_id %><br>
-    <%= f.number_field :player1_id %>
+   <%= collection_select(:match, :player1_id, Player.all, :id, :get_full_name)%>
   </div>
-  <div class="field">
+   <div class="field">
     <%= f.label :player2_id %><br>
-    <%= f.number_field :player2_id %>
+   <%= collection_select(:match, :player2_id, Player.all, :id, :get_full_name)%>
   </div>
+
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

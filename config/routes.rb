@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   root                 'football#home'
-  get    'matches' =>  'football#matches'
+  get    'matches' =>  'matches#index'
   get    'players' =>  'players#index'
   get    'about'   =>  'football#about'
   get    'signup'  =>  'players#signup'

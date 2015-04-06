@@ -9,7 +9,7 @@ class Player < ActiveRecord::Base
 		    format: { with: VALID_EMAIL_REGEX },
 		    uniqueness: { case_sensitive: false }
 
-  has_many :matches
+  has_many :matches, dependent: :destroy
   has_many :goals
 
   has_secure_password
@@ -27,6 +27,10 @@ class Player < ActiveRecord::Base
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
+  end
+
+  def get_full_name
+	"#{first_name} #{last_name}"
   end
 
 end
