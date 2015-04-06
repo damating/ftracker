@@ -20,8 +20,8 @@
         <td><%= match.title %></td>
         <td><%= match.date %></td>
         <td><%= match.startTime %></td>
-        <td><%= match.player1_id %></td>
-        <td><%= match.player2_id %></td>
+        <td><%= Player.find(match.player1_id).get_full_name %></td>
+        <td><%= Player.find(match.player2_id).get_full_name %></td>
         <td><%= link_to 'Show', match %></td>
         <td><%= link_to 'Edit', edit_match_path(match) %></td>
         <td><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>

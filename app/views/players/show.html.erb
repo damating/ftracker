@@ -27,5 +27,12 @@
   <%= @player.email %>
 </p>
 
+<p>
+  <strong>Played matches:</strong>
+  <%= @player.played_matches.count %>
+</p>
+
+
+
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>

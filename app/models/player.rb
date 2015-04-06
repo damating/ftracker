@@ -33,4 +33,8 @@ class Player < ActiveRecord::Base
 	"#{first_name} #{last_name}"
   end
 
+def  played_matches
+    Match.where(player1_id: id) + Match.where(player2_id: id)
+  end
+
 end
