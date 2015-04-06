@@ -5,7 +5,9 @@ module PlayersHelper
     gravatar_id = Digest::MD5::hexdigest(player.email.downcase) #player.id
     size = options[:size]
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
-    image_tag(gravatar_url, alt: player.first_name, class: "gravatar")
+    avatar_url = player.avatar? ? player.avatar.url: gravatar_url
+    image_tag avatar_url
+   # image_tag( avatar_url, alt: player.first_name, class: "gravatar")
   end
 
 end

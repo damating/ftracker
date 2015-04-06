@@ -1,4 +1,5 @@
 class Player < ActiveRecord::Base
+  
   before_save { self.email = email.downcase }
   validates :first_name, presence: true, length: { maximum: 50 } 
   validates :last_name,  presence: true, length: { maximum: 50 }
@@ -14,6 +15,13 @@ class Player < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }, allow_blank: true
 
+  has_attached_file :avatar, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
+ validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
+ 
   # Returns the hash digest of the given string.
   def Player.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
