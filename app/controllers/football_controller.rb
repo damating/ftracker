@@ -2,10 +2,7 @@ class FootballController < ApplicationController
   def home
   end
 
-  def matches
-  end
-
-  def players
+  def statistics
   end
 
   def about

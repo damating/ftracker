@@ -51,6 +51,7 @@ def get_points
 	won_matches.count * 3 - lost_matches.count * 1 
 end
 
+
 def goals_number
 	Match.where("player1_id = ?",id).collect { |i| i.player1_goals}.sum + Match.where("player2_id = ?",id).collect { |i| i.player2_goals}.sum
 end
@@ -59,10 +60,13 @@ def goals_per_game
 	if !(played_matches.empty?)
       		(goals_number/played_matches.size).to_f
 	else
-		"Player has no played matches"
+		return 0
 	end
   end
 
+def best_players
+    Player.all.sort_by { |player| player.goals_per_game }
+end
 
 
 

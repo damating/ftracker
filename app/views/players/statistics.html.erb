@@ -3,4 +3,10 @@
 
 <h1>Players</h1>
 
- <%= @player.best_players %>
+<%= @players.find_each do |player| %>
+	<%= player.goals_per_game%>
+<% end %>
+
+
+
+
