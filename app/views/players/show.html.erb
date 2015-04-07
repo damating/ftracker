@@ -42,6 +42,25 @@
   <%= @player.lost_matches.count %>
 </p>
 
+<p>
+  <strong>Rating:</strong>
+  <%= @player.get_points %>
+</p>
+
+<p>
+<strong>List of player's matches</strong>
+<ul class="matches">
+  <%= @player.played_matches_show.find_each do |match| %>
+	<li>
+	<%= match.title %>
+	<%= match.date %>
+	<%= match.startTime %>
+	<%= Player.find(match.player1_id).get_full_name %>
+	<%= Player.find(match.player2_id).get_full_name %>
+	</li>
+<% end %>
+</ul>
+</p>
 
 
 
