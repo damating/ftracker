@@ -38,10 +38,6 @@ def  played_matches
     Match.where("player1_id = ? OR player2_id = ?", id, id)
   end
 
-def  played_matches_show
-Match.where("player1_id = ? OR player2_id = ?", id, id)
-  end
-
 def  won_matches
     #Match.where("player1_goals = ? AND player1_id = ?", 10, id) + Match.where("player2_goals = ? AND player2_id = ?", 10, id)
      Match.where("(player1_goals = ? AND player1_id = ?) OR (player2_goals = ? AND player2_id = ?)", 10, id,10, id)
@@ -55,6 +51,17 @@ def get_points
 	won_matches.count * 3 - lost_matches.count * 1 
 end
 
+def goals_number
+	Match.where("player1_id = ?",id).collect { |i| i.player1_goals}.sum + Match.where("player2_id = ?",id).collect { |i| i.player2_goals}.sum
+end
+
+def goals_per_game 
+	if !(played_matches.empty?)
+      		(goals_number/played_matches.size).to_f
+	else
+		"Player has no played matches"
+	end
+  end
 
 
 

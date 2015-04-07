@@ -47,10 +47,11 @@
   <%= @player.get_points %>
 </p>
 
+ <% if !(@player.played_matches.empty?) %>
 <p>
 <strong>List of player's matches</strong>
 <ul class="matches">
-  <%= @player.played_matches_show.find_each do |match| %>
+  <%= @player.played_matches.find_each do |match| %>
 	<li>
 	<%= match.title %>
 	<%= match.date %>
@@ -61,7 +62,17 @@
 <% end %>
 </ul>
 </p>
+<% end %>
 
+<p>
+  <strong>Goals:</strong>
+  <%= @player.goals_number%>
+</p>
+
+<p>
+  <strong>Average number of goals per game:</strong>
+  <%= @player.goals_per_game%>
+</p>
 
 
 <%= link_to 'Edit', edit_player_path(@player) %> |
