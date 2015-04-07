@@ -1,12 +1,64 @@
 <%provide(:title, "Statistics") %>
 <p id="notice"><%= notice %></p>
 
-<h1>Players</h1>
+<h1>Best players</h1>
 
-<%= @players.find_each do |player| %>
-	<%= player.goals_per_game%>
+<h2>Players with the best avarage number of goals per game.</h2>
+
+<table>
+<thead>
+    <tr>
+       <th>Player</th>
+      <th>Avarage number of goals per game</th>	
+    </tr>
+</thead>
+  <tbody>
+<% Player.sort_by_goals_per_game.each do |player| %>
+      <tr>
+	<td><%= player.get_full_name %></td>
+	<td><%= player.goals_per_game %></td>
+      </tr>
 <% end %>
+  </tbody>
+</table>
 
+<h2>Players with the best score.</h2>
+
+<table>
+<thead>
+    <tr>
+       <th>Player</th>
+      <th>Amount of goals</th>	
+    </tr>
+</thead>
+  <tbody>
+<% Player.sort_by_goals.each do |player| %>
+      <tr>
+	<td><%= player.get_full_name %></td>
+	<td><%= player.goals_number %></td>
+      </tr>
+<% end %>
+  </tbody>
+</table>
+
+<h2>Players with the largest number of won matches</h2>
+
+<table>
+<thead>
+    <tr>
+       <th>Player</th>
+      <th>Won matches</th>	
+    </tr>
+</thead>
+  <tbody>
+<% Player.sort_by_wins.each do |player| %>
+      <tr>
+	<td><%= player.get_full_name %></td>
+	<td><%= player.number_of_wins %></td>
+      </tr>
+<% end %>
+  </tbody>
+</table>
 
 
 

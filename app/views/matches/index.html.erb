@@ -49,7 +49,7 @@
     </tr>
 </thead>
   <tbody>
-<%= Match.rank.find_each do |match| %>
+<%= Match.upcoming_matches.find_each do |match| %>
       <tr>
 	<td><%= match.date %></td>
         <td><%= match.startTime %></td>

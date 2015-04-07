@@ -64,10 +64,24 @@ def goals_per_game
 	end
   end
 
-def best_players
-    Player.all.sort_by { |player| player.goals_per_game }
+#def self.best_players
+   #all.sort_by { |player| player.goals_per_game }
+#end
+
+  def self.sort_by_goals_per_game
+    all.sort_by(&:goals_per_game).reverse
+  end
+
+  def self.sort_by_goals
+    all.sort_by(&:goals_number).reverse
+  end
+
+def number_of_wins
+	won_matches.count
 end
 
-
+  def self.sort_by_wins
+    all.sort_by(&:number_of_wins).reverse
+  end
 
 end

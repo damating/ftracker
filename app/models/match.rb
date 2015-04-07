@@ -11,7 +11,7 @@ class Match < ActiveRecord::Base
 	"#{player1_goals} : #{player2_goals}"
   end
 
- def self.rank
+ def self.upcoming_matches
 	created_after(Time.zone.now)
   end
   
