@@ -6,8 +6,7 @@
   <% @players.each do |player| %>
     <li>
       <%= gravatar_for player, size: 50 %>
-      <%= link_to player.first_name, player %>
-      <%= link_to player.last_name, player %>
+      <%= link_to player.get_full_name, player %>
     </li>
   <% end %>
 </ul>

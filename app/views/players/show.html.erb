@@ -32,6 +32,17 @@
   <%= @player.played_matches.count %>
 </p>
 
+<p>
+  <strong>Won matches:</strong>
+  <%= @player.won_matches.count %>
+</p>
+
+<p>
+  <strong>Lost matches:</strong>
+  <%= @player.lost_matches.count %>
+</p>
+
+
 
 
 <%= link_to 'Edit', edit_player_path(@player) %> |

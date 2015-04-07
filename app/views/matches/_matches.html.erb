@@ -1,0 +1,9 @@
+<li id="match-<%= match.id %>">
+  <%= link_to gravatar_for(match.player1_id, size: 50), match.player1_id %>
+  <%= link_to gravatar_for(match.player2_id, size: 50), match.player2_id %>
+  <span class="player"><%= link_to match.player1_id.first_name, match.player1_id %></span>
+  <span class="player"><%= link_to match.player2_id.first_name, match.player2_id %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(match.created_at) %> ago.
+  </span>
+</li>

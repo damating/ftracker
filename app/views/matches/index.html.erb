@@ -10,6 +10,8 @@
       <th>Starttime</th>
       <th>Player1</th>
       <th>Player2</th>
+       <th>Player1 goals</th>
+      <th>Player2 goals</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,7 +24,10 @@
         <td><%= match.startTime %></td>
         <td><%= Player.find(match.player1_id).get_full_name %></td>
         <td><%= Player.find(match.player2_id).get_full_name %></td>
-        <td><%= link_to 'Show', match %></td>
+	<td><%= match.player1_goals %></td>
+	<td><%= match.player2_goals  %></td>
+       
+	 <td><%= link_to 'Show', match %></td>
         <td><%= link_to 'Edit', edit_match_path(match) %></td>
         <td><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

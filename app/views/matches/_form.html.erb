@@ -33,6 +33,15 @@
    <%= collection_select(:match, :player2_id, Player.all, :id, :get_full_name)%>
   </div>
 
+  <div class="field">
+    <%= f.label :player1_goals %><br>
+    <%= f.number_field(:player1_goals, in: 0..10) %>
+  </div>
+  <div class="field">
+    <%= f.label :player2_goals %><br>
+    <%= f.number_field(:player2_goals, in: 0..10) %>
+  </div>
+
 
 
   <div class="actions">

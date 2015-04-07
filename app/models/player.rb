@@ -34,7 +34,22 @@ class Player < ActiveRecord::Base
   end
 
 def  played_matches
-    Match.where(player1_id: id) + Match.where(player2_id: id)
+    #Match.where(player1_id: id) + Match.where(player2_id: id)
+    Match.where("player1_id = ? OR player2_id = ?", id, id)
   end
+
+def  won_matches
+    #Match.where("player1_goals = ? AND player1_id = ?", 10, id) + Match.where("player2_goals = ? AND player2_id = ?", 10, id)
+     Match.where("(player1_goals = ? AND player1_id = ?) OR (player2_goals = ? AND player2_id = ?)", 10, id,10, id)
+end
+
+def  lost_matches
+     Match.where("(player1_id = ? AND player1_goals < player2_goals) OR (player2_id = ? AND player1_goals > player2_goals)", id, id)
+end
+
+
+
+
+
 
 end
