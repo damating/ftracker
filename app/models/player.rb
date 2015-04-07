@@ -34,7 +34,6 @@ class Player < ActiveRecord::Base
   end
 
 def  played_matches
-    #Match.where(player1_id: id) + Match.where(player2_id: id)
     Match.where("player1_id = ? OR player2_id = ?", id, id)
   end
 
@@ -63,10 +62,6 @@ def goals_per_game
 		return 0
 	end
   end
-
-#def self.best_players
-   #all.sort_by { |player| player.goals_per_game }
-#end
 
   def self.sort_by_goals_per_game
     all.sort_by(&:goals_per_game).reverse

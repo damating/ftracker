@@ -1,9 +1,10 @@
 class Match < ActiveRecord::Base
+   validates :title, presence: true, length: { maximum: 50 } 
+
   belongs_to :player1, :class_name => "Player"
   belongs_to :player2, :class_name => "Player"
   has_many :goals, :dependent => :destroy
 
- scope :created, -> { order(created_at: :desc) }
  scope :created_after, ->(date) { where("date > ?", date) }
 
 
