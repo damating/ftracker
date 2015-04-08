@@ -16,13 +16,6 @@ ActiveRecord::Schema.define(version: 20150407225702) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "goals", force: :cascade do |t|
-    t.integer  "player_id"
-    t.integer  "match_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "matches", force: :cascade do |t|
     t.string   "title"
     t.date     "date"

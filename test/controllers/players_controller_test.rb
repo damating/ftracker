@@ -16,27 +16,4 @@ class PlayersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  #test "should create player" do
-    #assert_difference('Player.count') do
-      #post :create, player: { avatar: @player.avatar, email: @player.email, first_name: @player.first_name, last_name: @player.last_name, password: @player.password, password_confirmation: @player.password_confirmation }
-    #end
-
-    #assert_redirected_to player_path(assigns(:player))
-  #end
-
-  #test "should show player" do
-    #get :show, id: @player
-    #assert_response :success
-  #end
-
-  #test "should get edit" do
-    #get :edit, id: @player
-    #assert_response :success
-  #end
-
- #test "should update player" do
-    #patch :update, id: @player, player: { avatar: @player.avatar, email: @player.email,  first_name: @player.first_name, last_name: @player.last_name,password: @player.password, password_confirmation: @player.password_confirmation }
-    #assert_redirected_to player_path(assigns(:player))
-  #end
-
 end

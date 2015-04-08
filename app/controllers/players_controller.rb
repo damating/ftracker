@@ -33,38 +33,25 @@ class PlayersController < ApplicationController
   # POST /players.json
   def create
     @player = Player.new(player_params)
-
-   # respond_to do |format|
       if @player.save
         flash[:success] = "Player was successfully created.!"
         redirect_to @player
-        #format.html { redirect_to @player, notice: 'Player was successfully created.' }
-        #format.json { render :show, status: :created, location: @player }
       else
         render :new
-        #format.html { render :new }
-        #format.json { render json: @player.errors, status: :unprocessable_entity }
       end
-    #end
   end
 
   # PATCH/PUT /players/1
   # PATCH/PUT /players/1.json
   def update
-    #respond_to do |format|
       @player = Player.find(params[:id])
 	@player.avatar = nil
       if @player.update(player_params)
 	 flash[:success] = "Player was successfully updated."
 	 redirect_to @player
-       # format.html { redirect_to @player, notice: 'Player was successfully updated.' }
-        #format.json { render :show, status: :ok, location: @player }
       else
         render 'edit'
-       #format.html { render :edit }
-        #format.json { render json: @player.errors, status: :unprocessable_entity }
       end
-    #end
   end
 
   # DELETE /players/1
