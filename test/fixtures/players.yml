@@ -3,5 +3,5 @@
 one:
   first_name: MyString
   last_name: MyString
-  email: MyEmail@email.com
+  email: one@example.com
   password_digest: <%= Player.digest('password') %>
