@@ -6,10 +6,14 @@ one:
   startTime: 2015-04-02 14:42:44
   player1_id: 1
   player2_id: 1
+  player1_goals: 0
+  player2_goals: 5
 
 two:
   title: MyString
   date: 2015-04-02
   startTime: 2015-04-02 14:42:44
-  player1_id: 1
+  player1_id: 5
   player2_id: 1
+  player1_goals: 3
+  player2_goals: 10

@@ -3,6 +3,5 @@
 one:
   first_name: MyString
   last_name: MyString
-  avatar: MyText
   email: MyEmail@email.com
   password_digest: <%= Player.digest('password') %>

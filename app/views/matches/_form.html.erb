@@ -1,3 +1,6 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
 <%= form_for(@match) do |f| %>
   <% if @match.errors.any? %>
     <div id="error_explanation">
@@ -11,40 +14,30 @@
     </div>
   <% end %>
 
-  <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :startTime %><br>
-    <%= f.time_select :startTime %>
-  </div>
+    <%= f.text_field :title, class: 'form-control'%>
 
-   <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date, class: 'form-control' %>
+
+    <%= f.label :startTime %><br>
+    <%= f.time_select :startTime, class: 'form-control' %>
+
     <%= f.label :player1_id %><br>
-   <%= collection_select(:match, :player1_id, Player.all, :id, :get_full_name)%>
-  </div>
+   <%= collection_select(:match, :player1_id, Player.all, :id, :get_full_name) %>
    <div class="field">
     <%= f.label :player2_id %><br>
    <%= collection_select(:match, :player2_id, Player.all, :id, :get_full_name)%>
   </div>
 
-  <div class="field">
+
     <%= f.label :player1_goals %><br>
     <%= f.number_field(:player1_goals, in: 0..10) %>
-  </div>
-  <div class="field">
+
     <%= f.label :player2_goals %><br>
     <%= f.number_field(:player2_goals, in: 0..10) %>
-  </div>
 
-
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit "Create", class: "btn btn-primary" %>
 <% end %>
+</div>
+</div>

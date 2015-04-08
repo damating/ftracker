@@ -1,12 +1,9 @@
 require 'test_helper'
 
 class PlayerTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
  
  def setup
-   @player = Player.new(first_name: "Example Player", last_name: "Example Player", email: "player@example.com", password: "foobar", password_confirmation: "foobar")
+@player = players(:one)
  end
 
  test "should be valid" do

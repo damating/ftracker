@@ -5,12 +5,6 @@ class MatchesControllerTest < ActionController::TestCase
     @match = matches(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:matches)
-  end
-
   test "should get new" do
     get :new
     assert_response :success
@@ -20,18 +14,7 @@ class MatchesControllerTest < ActionController::TestCase
     assert_difference('Match.count') do
       post :create, match: { date: @match.date, player1_id: @match.player1_id, player2_id: @match.player2_id, startTime: @match.startTime, title: @match.title }
     end
-
     assert_redirected_to match_path(assigns(:match))
-  end
-
-  test "should show match" do
-    get :show, id: @match
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @match
-    assert_response :success
   end
 
   test "should update match" do
@@ -43,7 +26,6 @@ class MatchesControllerTest < ActionController::TestCase
     assert_difference('Match.count', -1) do
       delete :destroy, id: @match
     end
-
     assert_redirected_to matches_path
   end
 end
