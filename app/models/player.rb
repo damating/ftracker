@@ -15,11 +15,7 @@ class Player < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }, allow_blank: true
 
-  has_attached_file :avatar, styles: {
-    thumb: '100x100>',
-    square: '200x200#',
-    medium: '300x300>'
-  }
+  has_attached_file :avatar
  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
  
   # Returns the hash digest of the given string.
@@ -73,6 +69,10 @@ def goals_per_game
 
 def number_of_wins
 	won_matches.count
+end
+
+def number_of_losts
+	lost_matches.count
 end
 
   def self.sort_by_wins

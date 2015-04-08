@@ -1,5 +1,32 @@
 <p id="notice"><%= notice %></p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Player1</th>
+      <th></th>
+      <th>Result</th>
+      <th></th>
+      <th>Player2</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr class="players">
+        <td><%= @match.title %></td>
+        <td><%= @match.date %></td>
+	<td><%= Player.find(@match.player1_id).get_full_name %></td>
+        <td><%= gravatar_for Player.find(@match.player1_id), size: 50 %></td>
+        <td><%= @match.match_result %></td>
+	   <td><%= gravatar_for Player.find(@match.player2_id), size: 50 %></td>
+	<td><%= Player.find(@match.player2_id).get_full_name %></td>
+      </tr>
+  </tbody>
+</table>
+
 <p>
   <strong>Title:</strong>
   <%= @match.title %>
@@ -11,28 +38,13 @@
 </p>
 
 <p>
-  <strong>Starttime:</strong>
-  <%= @match.startTime %>
+  <strong>Opponents:</strong>
+  <%= Player.find(@match.player1_id).get_full_name + " vs. " + Player.find(@match.player2_id).get_full_name %>
 </p>
 
 <p>
-  <strong>Player1:</strong>
-  <%= @match.player1_id %>
-</p>
-
-<p>
-  <strong>Player2:</strong>
-  <%= @match.player2_id %>
-</p>
-
-<p>
-  <strong>Player1 goals:</strong>
-  <%= @match.player1_goals %>
-</p>
-
-<p>
-  <strong>Player2 goals:</strong>
-  <%= @match.player2_goals %>
+  <strong>Result:</strong>
+  <%= @match.match_result %>
 </p>
 
 <%= link_to 'Edit', edit_match_path(@match) %> |

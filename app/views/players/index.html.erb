@@ -1,26 +1,19 @@
 <%provide(:title, "Players") %>
 <p id="notice"><%= notice %></p>
 
+<div class="container-fluid">
+  <div class="row">
+<div class="col-xs-9">
 <h1>Players</h1>
-
-<ul class="players">
-  <% @players.each do |player| %>
-    <li>
-      <%= gravatar_for player, size: 50 %>
-      <%= link_to player.get_full_name, player %>
-      Rating: <%= player.get_points %>
-    </li>
-  <% end %>
-</ul>
-
-<table>
+<div class="table-responsive">
+  <table class="table">
   <thead>
     <tr>
-      <th>Avatar</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Avatar</th>
-      <th>Email</th>
+      <th></th>
+      <th>Player</th>
+      <th>Rating</th>
+	<th>Wins</th>
+	<th>Losts</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -28,12 +21,12 @@
   <tbody>
     <% @players.each do |player| %>
       <tr class="players">
-        <td><%= gravatar_for player, size: 50 %></td>
-        <td><%= player.first_name %></td>
-        <td><%= player.last_name %></td>
-        <td><%= player.avatar %></td>
-        <td><%= player.email %></td>
-        
+        <td><%= gravatar_for player, size: 80 %></td>
+        <td><%=  link_to player.get_full_name, player %></td>
+        <td> <%= player.get_points %> pkt</td>
+        <td><%= player.number_of_wins %></td>
+	<td><%= player.number_of_losts %></td>
+
 	<td><%= link_to 'Show', player %></td>
         <td><%= link_to 'Edit', edit_player_path(player) %></td>
         <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -41,7 +34,14 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
+</div>
+<h6>You can <strong>add new player!</strong></h6>
+ <div class="col-xs-1">
 
-<%= link_to 'New Player', new_player_path %>
+<%= link_to 'New Player', new_player_path, class: "btn btn-lg btn-primary"  %>
+</div>
+ </div>
+</div>

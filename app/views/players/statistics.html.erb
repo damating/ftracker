@@ -1,32 +1,18 @@
 <%provide(:title, "Statistics") %>
 <p id="notice"><%= notice %></p>
 
-<h1>Best players</h1>
+<div class="container-fluid">
+  <div class="row">
+<h1>Check who is the best!</h1>
 
-<h2>Players with the best avarage number of goals per game.</h2>
-
-<table>
-<thead>
-    <tr>
-       <th>Player</th>
-      <th>Avarage number of goals per game</th>	
-    </tr>
-</thead>
-  <tbody>
-<% Player.sort_by_goals_per_game.each do |player| %>
-      <tr>
-	<td><%= player.get_full_name %></td>
-	<td><%= player.goals_per_game %></td>
-      </tr>
-<% end %>
-  </tbody>
-</table>
-
+<div class="col-xs-6">
 <h2>Players with the best score.</h2>
 
-<table>
+<div class="table-responsive">
+  <table class="table">
 <thead>
     <tr>
+	<th></th>
        <th>Player</th>
       <th>Amount of goals</th>	
     </tr>
@@ -34,18 +20,24 @@
   <tbody>
 <% Player.sort_by_goals.each do |player| %>
       <tr>
+	<td><%= gravatar_for player, size: 80 %></td>
 	<td><%= player.get_full_name %></td>
 	<td><%= player.goals_number %></td>
       </tr>
 <% end %>
   </tbody>
 </table>
+</div>
+</div>
 
+<div class="col-xs-6">
 <h2>Players with the largest number of won matches</h2>
 
-<table>
+<div class="table-responsive">
+  <table class="table">
 <thead>
     <tr>
+	<th></th>
        <th>Player</th>
       <th>Won matches</th>	
     </tr>
@@ -53,12 +45,41 @@
   <tbody>
 <% Player.sort_by_wins.each do |player| %>
       <tr>
+	<td><%= gravatar_for player, size: 80 %></td>
 	<td><%= player.get_full_name %></td>
 	<td><%= player.number_of_wins %></td>
       </tr>
 <% end %>
   </tbody>
 </table>
+</div>
+</div>
 
+<div class="col-xs-12">
+<h2>Players with the best avarage number of goals per game.</h2>
 
+<div class="table-responsive">
+  <table class="table">
+<thead>
+    <tr>
+	<th></th>
+       <th>Player</th>
+      <th>Avarage number of goals per game</th>	
+    </tr>
+</thead>
+  <tbody>
+<% Player.sort_by_goals_per_game.each do |player| %>
+      <tr>
+	<td><%= gravatar_for player, size: 80 %></td>
+	<td><%= player.get_full_name %></td>
+	<td><%= player.goals_per_game %></td>
+      </tr>
+<% end %>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
 

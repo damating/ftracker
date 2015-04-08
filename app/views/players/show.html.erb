@@ -2,78 +2,93 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>
-  <%= gravatar_for @player %>
-  <%= @player.first_name + " " +  @player.last_name %>
-</h1>
+<div class="container-fluid">
+  
+<div class="row">
+	<div class="col-xs-9">
+		<h1><%= @player.get_full_name %></h1>
+	</div>
+	  <div class="col-xs-1"><%= gravatar_for @player %></div>
+	
+</div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @player.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @player.last_name %>
-</p>
-
-<p>
-  <strong>Avatar:</strong>
-  <%= @player.avatar %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @player.email %>
-</p>
-
-<p>
-  <strong>Played matches:</strong>
-  <%= @player.played_matches.count %>
-</p>
-
-<p>
-  <strong>Won matches:</strong>
-  <%= @player.won_matches.count %>
-</p>
-
-<p>
-  <strong>Lost matches:</strong>
-  <%= @player.lost_matches.count %>
-</p>
-
-<p>
+<div class="row">
+<div class="col-xs-3">
+<p >
   <strong>Rating:</strong>
   <%= @player.get_points %>
 </p>
-
- <% if !(@player.played_matches.empty?) %>
-<p>
-<strong>List of player's matches</strong>
-<ul class="matches">
-  <%= @player.played_matches.find_each do |match| %>
-	<li>
-	<%= match.title %>
-	<%= match.date %>
-	<%= match.startTime %>
-	<%= Player.find(match.player1_id).get_full_name %>
-	<%= Player.find(match.player2_id).get_full_name %>
-	</li>
-<% end %>
-</ul>
-</p>
-<% end %>
-
+</div>
+<div class="col-xs-3">
 <p>
   <strong>Goals:</strong>
   <%= @player.goals_number%>
 </p>
-
+</div>
+<div class="col-xs-3">
 <p>
   <strong>Average number of goals per game:</strong>
   <%= @player.goals_per_game%>
 </p>
+</div>
+</div>
+
+
+
+<div class="row">
+<div class="col-xs-3">
+<p>
+  <strong>Played matches:</strong>
+  <%= @player.played_matches.count %>
+</p>
+</div>
+<div class="col-xs-3">
+<p>
+  <strong>Won matches:</strong>
+  <%= @player.won_matches.count %>
+</p>
+</div>
+<div class="col-xs-3">
+<p>
+  <strong>Lost matches:</strong>
+  <%= @player.lost_matches.count %>
+</p>
+</div>
+</div>
+
+<div class="row">
+<br>
+<% if !(@player.played_matches.empty?) %>
+<h2>List of player's matches</h2>
+<div class="table-responsive">
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Data</th>
+      <th>Oponnents</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @player.played_matches.find_each do |match| %>
+      <tr>
+        <td><%= match.title %></td>
+        <td><%= match.date %></td>
+        <td> <%=  Player.find(match.player1_id).get_full_name + " vs. " +  Player.find(match.player2_id).get_full_name%> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<% end %>
+
+
 
 
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>
+
+</div>
+</div>
