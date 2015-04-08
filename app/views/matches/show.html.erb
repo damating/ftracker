@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<table>
+<h1>Information about <%= @match.title %> </h1>
+
+<div class="table-responsive">
+  <table class="table">
   <thead>
     <tr>
       <th>Title</th>
@@ -26,26 +29,7 @@
       </tr>
   </tbody>
 </table>
-
-<p>
-  <strong>Title:</strong>
-  <%= @match.title %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @match.date %>
-</p>
-
-<p>
-  <strong>Opponents:</strong>
-  <%= Player.find(@match.player1_id).get_full_name + " vs. " + Player.find(@match.player2_id).get_full_name %>
-</p>
-
-<p>
-  <strong>Result:</strong>
-  <%= @match.match_result %>
-</p>
+</div>
 
 <%= link_to 'Edit', edit_match_path(@match) %> |
 <%= link_to 'Back', matches_path %>

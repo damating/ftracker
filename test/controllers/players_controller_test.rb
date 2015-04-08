@@ -29,10 +29,10 @@ class PlayersControllerTest < ActionController::TestCase
     #assert_response :success
   #end
 
-  test "should get edit" do
-    get :edit, id: @player
-    assert_response :success
-  end
+  #test "should get edit" do
+    #get :edit, id: @player
+    #assert_response :success
+  #end
 
  #test "should update player" do
     #patch :update, id: @player, player: { avatar: @player.avatar, email: @player.email,  first_name: @player.first_name, last_name: @player.last_name,password: @player.password, password_confirmation: @player.password_confirmation }

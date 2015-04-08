@@ -25,30 +25,23 @@ class MatchesController < ApplicationController
   # POST /matches.json
   def create
     @match = Match.new(match_params)
-
-    respond_to do |format|
       if @match.save
-        format.html { redirect_to @match, notice: 'Match was successfully created.' }
-        format.json { render :show, status: :created, location: @match }
+	 flash[:success] = "Match was successfully created.!"
+        redirect_to @match
       else
-        format.html { render :new }
-        format.json { render json: @match.errors, status: :unprocessable_entity }
+	render :new
       end
-    end
   end
 
   # PATCH/PUT /matches/1
   # PATCH/PUT /matches/1.json
   def update
-    respond_to do |format|
       if @match.update(match_params)
-        format.html { redirect_to @match, notice: 'Match was successfully updated.' }
-        format.json { render :show, status: :ok, location: @match }
+	 flash[:success] = "Match was successfully updated."
+	 redirect_to @match
       else
-        format.html { render :edit }
-        format.json { render json: @match.errors, status: :unprocessable_entity }
+	render :new
       end
-    end
   end
 
   # DELETE /matches/1
